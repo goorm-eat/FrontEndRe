@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/src/img/catIcon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jeju Restaurant Crew</title>
+    <!-- Kakao Map API -->
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=%VITE_KAKAO_API_KEY%&libraries=services,clusterer,drawing"
+    ></script>
+  </head>
+  <script>
+    (function () {
+      const defaultConfig = { appearance: 'light', radius: 'md', scaling: 1.0 };
+      const storageKey = 'my-vite-app-theme';
+      const root = document.documentElement;
+      let currentThemes = defaultConfig;
+      try {
+        const storedItem = localStorage.getItem(storageKey);
+        if (storedItem) {
+          const storedSettings = JSON.parse(storedItem);
+          currentThemes = Object.assign({}, defaultConfig, storedSettings);
+        }
+      } catch (e) {}
+      if (currentThemes.appearance === 'dark') {
+        root.classList.add('vapor-dark-theme');
+      } else {
+        root.classList.add('vapor-light-theme');
+      }
+      const radiusMap = { none: 0, sm: 0.5, md: 1, lg: 1.5, xl: 2, full: 3 };
+      const radiusFactor = radiusMap[currentThemes.radius] ?? 1;
+      root.style.setProperty('--vapor-radius-factor', radiusFactor.toString());
+      const scaleFactor = currentThemes.scaling ?? 1;
+      root.style.setProperty('--vapor-scale-factor', scaleFactor.toString());
+    })();
+  </script>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
