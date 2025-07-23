@@ -1,6 +1,4 @@
-// src/store/recruitmentAtom.ts
-import { atom } from 'jotai';
-
+// 테스트 모집글 데이터
 export const mockRecruitmentData = [
   {
     id: 1,
@@ -15,14 +13,14 @@ export const mockRecruitmentData = [
     crewDescription: '산우정에서 고기먹자! 맛있는 제주 흑돼지를 함께 즐겨요.',
     joinedcrewnumber: 6,
     crewnumber: 6,
-    isCompleted: true,
+    isCompleted: true, // 모집 완료된 상태
   },
   {
     id: 2,
     crewName: '몸국 투어',
     storeAddress: '제주특별자치도 제주시 광양10길 17',
     storeName: '호근동',
-    meetingDate: '2025-07-08',
+    meetingDate: '2025-07-08', // 과거 날짜로 변경
     meetingTime: '12:00',
     closingDate: '2025-07-07',
     closingTime: '18:00',
@@ -30,7 +28,7 @@ export const mockRecruitmentData = [
     crewDescription: '제주도 몸국 맛집 함께 방문해봐요. 따뜻한 국물이 일품!',
     joinedcrewnumber: 2,
     crewnumber: 4,
-    isCompleted: false,
+    isCompleted: false, // 모집 중인 상태
   },
   {
     id: 3,
@@ -42,11 +40,10 @@ export const mockRecruitmentData = [
     closingDate: '2025-07-17',
     closingTime: '15:00',
     chatLink: 'https://open.kakao.com/o/sample3',
-    crewDescription:
-      '싱싱한 제철 생선을 먹으면서 야경을 감상해요. 바다 뷰 최고!',
+    crewDescription: '싱싱한 제철 생선을 먹으면서 야경을 감상해요. 바다 뷰 최고!',
     joinedcrewnumber: 8,
     crewnumber: 8,
-    isCompleted: true,
+    isCompleted: true, // 모집 완료된 상태
   },
   {
     id: 4,
@@ -58,15 +55,12 @@ export const mockRecruitmentData = [
     closingDate: '2025-07-19',
     closingTime: '12:00',
     chatLink: 'https://open.kakao.com/o/sample4',
-    crewDescription:
-      '세계의 다양한 커피를 맛보는 투어에 함께해요. 원두부터 디저트까지!',
+    crewDescription: '세계의 다양한 커피를 맛보는 투어에 함께해요. 원두부터 디저트까지!',
     joinedcrewnumber: 1,
     crewnumber: 5,
-    isCompleted: false,
+    isCompleted: false, // 모집 중인 상태
   },
 ];
-
-export const recruitmentAtom = atom(mockRecruitmentData);
 
 // 사용자가 참여한 모집글 ID들 (예시 데이터)
 export const userJoinedRecruitments = [1, 3];
